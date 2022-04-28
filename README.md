@@ -1,6 +1,6 @@
 # Benchmarks for SWPP Team Project
 
-This repository contains C programs, IR programs that are compiled from them, and input/outputs
+This repository contains C programs, and input/outputs
 for the team project of [SWPP](https://github.com/snu-sf-class/swpp202201).
 
 Note that in the final competition TAs can add more test cases or programs.
