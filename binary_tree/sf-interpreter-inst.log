@@ -1,0 +1,17 @@
+Instruction	Count	Cost
+Ret	102	102.0000
+BrUncond	403	403.0000
+BrCond	302	1307.0000
+BrCond	302	1307.0000
+Switch	0	0.0000
+Malloc	1	16.0000
+Free	0	0.0000
+Load	101	1212.0000
+Store	1	12.0000
+BinaryOp	503	903.0000
+Sum	0	0.0000
+UnaryOp	0	0.0000
+Select	0	0.0000
+Call	101	303.0000
+Read	201	402.0000
+Write	0	0.0000

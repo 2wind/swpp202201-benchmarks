@@ -1,0 +1,33 @@
+Total waiting cost: 0.0000
+main: 621.0000
+| countSetBits: 610.0000
+| | countSetBits: 590.0000
+| | | countSetBits: 570.0000
+| | | | countSetBits: 550.0000
+| | | | | countSetBits: 530.0000
+| | | | | | countSetBits: 510.0000
+| | | | | | | countSetBits: 490.0000
+| | | | | | | | countSetBits: 470.0000
+| | | | | | | | | countSetBits: 450.0000
+| | | | | | | | | | countSetBits: 430.0000
+| | | | | | | | | | | countSetBits: 410.0000
+| | | | | | | | | | | | countSetBits: 390.0000
+| | | | | | | | | | | | | countSetBits: 370.0000
+| | | | | | | | | | | | | | countSetBits: 350.0000
+| | | | | | | | | | | | | | | countSetBits: 330.0000
+| | | | | | | | | | | | | | | | countSetBits: 310.0000
+| | | | | | | | | | | | | | | | | countSetBits: 290.0000
+| | | | | | | | | | | | | | | | | | countSetBits: 270.0000
+| | | | | | | | | | | | | | | | | | | countSetBits: 250.0000
+| | | | | | | | | | | | | | | | | | | | countSetBits: 230.0000
+| | | | | | | | | | | | | | | | | | | | | countSetBits: 210.0000
+| | | | | | | | | | | | | | | | | | | | | | countSetBits: 190.0000
+| | | | | | | | | | | | | | | | | | | | | | | countSetBits: 170.0000
+| | | | | | | | | | | | | | | | | | | | | | | | countSetBits: 150.0000
+| | | | | | | | | | | | | | | | | | | | | | | | | countSetBits: 130.0000
+| | | | | | | | | | | | | | | | | | | | | | | | | | countSetBits: 110.0000
+| | | | | | | | | | | | | | | | | | | | | | | | | | | countSetBits: 90.0000
+| | | | | | | | | | | | | | | | | | | | | | | | | | | | countSetBits: 70.0000
+| | | | | | | | | | | | | | | | | | | | | | | | | | | | | countSetBits: 50.0000
+| | | | | | | | | | | | | | | | | | | | | | | | | | | | | | countSetBits: 30.0000
+| | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | countSetBits: 10.0000
