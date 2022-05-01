@@ -15,6 +15,12 @@ CLANGDIR=$1
 COMPILERDIR=$2
 INTERPRETERDIR=$3
 
+if [[ "$GITHUB_ACTIONS" == true ]]; then
+  DIFFWIDTH=160
+else
+  DIFFWIDTH=80
+fi
+
 check() {
   set -e
   problem=$1
@@ -30,7 +36,6 @@ check() {
 
   for (( i=1; i<=$n; i++)) ; do
     echo "- input${i}.txt"
-    # 나중에 적절한 상대경로로 대체하기 
 
     $INTERPRETERDIR/sf-interpreter ${problem}/src/${problem}.s < ${problem}/test/input${i}.txt | tee tmp.txt 1>/dev/null
     diff tmp.txt ${problem}/test/output${i}.txt
@@ -46,8 +51,8 @@ check() {
 
   echo "<<score: ${SCORE}/${TOTAL}>>"
   echo "<<Result>>"
-  cat sf-interpreter.log
-  cat sf-interpreter-inst.log
+  diff -y -W $DIFFWIDTH --left-column ${problem}/sf-interpreter.log sf-interpreter.log
+  diff -y -W $DIFFWIDTH --left-column ${problem}/sf-interpreter-inst.log sf-interpreter-inst.log
   
   rm -f tmp.txt
   rm -f ${problem}/src/${problem}.ll
@@ -73,4 +78,3 @@ check "merge_sort"
 check "prime"
 check "rmq1d_naive"
 check "rmq1d_sparsetable"
-check "anagram"
