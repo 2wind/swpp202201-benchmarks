@@ -1,8 +1,8 @@
 Instruction	Count	Cost
 Ret	2	2.0000
 BrUncond	31	31.0000
-BrCond	31	36.0000
-BrCond	31	36.0000
+BrCond	31	181.0000
+BrCond	31	181.0000
 Switch	0	0.0000
 Malloc	0	0.0000
 Free	0	0.0000
