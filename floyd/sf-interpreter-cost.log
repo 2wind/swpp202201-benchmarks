@@ -1,7 +1,7 @@
 Total waiting cost: 0.0000
-main: 477766.0000
+main: 437370.0000
 | malloc_upto_8: 24.0000
-| floyd: 17670.0000
+| floyd: 17274.0000
 | | advance: 31.0000
 | | advance: 31.0000
 | | advance: 31.0000

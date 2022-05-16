@@ -8,9 +8,9 @@ Malloc	1	16.0000
 Free	0	0.0000
 Load	101	1212.0000
 Store	1	12.0000
-BinaryOp	503	903.0000
+BinaryOp	403	403.0000
 Sum	0	0.0000
-UnaryOp	0	0.0000
+UnaryOp	100	100.0000
 Select	0	0.0000
 Call	101	303.0000
 Read	201	402.0000
