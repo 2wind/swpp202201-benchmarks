@@ -14,6 +14,7 @@ fi
 CLANGDIR=$1
 COMPILERDIR=$2
 INTERPRETERDIR=$3
+BASEDIR=`dirname "$BASH_SOURCE"`
 
 if [[ "$GITHUB_ACTIONS" == true ]]; then
   DIFFWIDTH=160
@@ -25,11 +26,11 @@ check() {
   set -e
   problem=$1
   echo "-- $problem --"
-  ./c-to-ll.sh ${problem}/src/${problem}.c $CLANGDIR
-  $COMPILERDIR/swpp-compiler ${problem}/src/${problem}.ll ${problem}/src/${problem}.s
+  $BASEDIR/c-to-ll.sh $BASEDIR/${problem}/src/${problem}.c $CLANGDIR
+  $COMPILERDIR/swpp-compiler $BASEDIR/${problem}/src/${problem}.ll $BASEDIR/${problem}/src/${problem}.s
   
   set +e
-  n=`ls ${problem}/test/input* | wc -l`
+  n=`ls $BASEDIR/${problem}/test/input* | wc -l`
 
   SCORE=0
   TOTAL=0
@@ -37,8 +38,8 @@ check() {
   for (( i=1; i<=$n; i++)) ; do
     echo "- input${i}.txt"
 
-    $INTERPRETERDIR/sf-interpreter ${problem}/src/${problem}.s < ${problem}/test/input${i}.txt | tee tmp.txt 1>/dev/null
-    diff tmp.txt ${problem}/test/output${i}.txt
+    $INTERPRETERDIR/sf-interpreter $BASEDIR/${problem}/src/${problem}.s < $BASEDIR/${problem}/test/input${i}.txt | tee $BASEDIR/tmp.txt 1>/dev/null
+    diff $BASEDIR/tmp.txt $BASEDIR/${problem}/test/output${i}.txt
     if [[ "$?" -eq 0 ]]; then
       echo "<OK>"
       SCORE=$((SCORE+10))
@@ -51,12 +52,12 @@ check() {
 
   echo "<<score: ${SCORE}/${TOTAL}>>"
   echo "<<Result>>"
-  diff -y -W $DIFFWIDTH --left-column ${problem}/sf-interpreter.log sf-interpreter.log
-  diff -y -W $DIFFWIDTH --left-column ${problem}/sf-interpreter-inst.log sf-interpreter-inst.log
+  diff -y -W $DIFFWIDTH --left-column $BASEDIR/${problem}/sf-interpreter.log sf-interpreter.log
+  diff -y -W $DIFFWIDTH --left-column $BASEDIR/${problem}/sf-interpreter-inst.log sf-interpreter-inst.log
   
-  rm -f tmp.txt
-  rm -f ${problem}/src/${problem}.ll
-  rm -f ${problem}/src/${problem}.s
+  rm -f $BASEDIR/tmp.txt
+  rm -f $BASEDIR/${problem}/src/${problem}.ll
+  rm -f $BASEDIR/${problem}/src/${problem}.s
   rm -f sf-interpreter.log
   rm -f sf-interpreter-cost.log
   rm -f sf-interpreter-inst.log
