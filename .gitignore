@@ -1,2 +1,5 @@
 irgen
 cproglist.txt
+*.ll
+*.s
+tmp.txt
