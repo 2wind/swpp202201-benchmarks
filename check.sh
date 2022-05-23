@@ -27,7 +27,7 @@ check() {
   problem=$1
   echo "-- $problem --"
   $BASEDIR/c-to-ll.sh $BASEDIR/${problem}/src/${problem}.c $CLANGDIR
-  $COMPILERDIR/swpp-compiler $BASEDIR/${problem}/src/${problem}.ll $BASEDIR/${problem}/src/${problem}.s
+  $COMPILERDIR/swpp-compiler $BASEDIR/${problem}/src/${problem}.ll $BASEDIR/${problem}/src/${problem}.s --verbose | sed -n '/After backend/,$p' | tail -n+3 > $BASEDIR/${problem}/src/${problem}-after_backend.ll
   
   set +e
   n=`ls $BASEDIR/${problem}/test/input* | wc -l`
@@ -54,9 +54,26 @@ check() {
   echo "<<Result>>"
   diff -y -W $DIFFWIDTH --left-column $BASEDIR/${problem}/sf-interpreter.log sf-interpreter.log
   diff -y -W $DIFFWIDTH --left-column $BASEDIR/${problem}/sf-interpreter-inst.log sf-interpreter-inst.log
+
+
+
+  if diff -q $BASEDIR/${problem}/sf-interpreter-inst.log sf-interpreter-inst.log > /dev/null
+  then
+    echo "no cost difference"
+  else
+    if [[ "$GITHUB_ACTIONS" == true ]];
+    then
+      echo "skipping diff for github action..."
+    else
+	   echo "cost difference detected..."
+	   # Uncomment below to activate diff on fly.
+       # git diff $BASEDIR/${problem}/src/${problem}.ll $BASEDIR/${problem}/src/${problem}-after.ll
+    fi
+  fi
   
   rm -f $BASEDIR/tmp.txt
-  rm -f $BASEDIR/${problem}/src/${problem}.ll
+  # rm -f $BASEDIR/${problem}/src/${problem}.ll
+  # rm -f $BASEDIR/${problem}/src/${problem}-after_backend.ll
   rm -f $BASEDIR/${problem}/src/${problem}.s
   rm -f sf-interpreter.log
   rm -f sf-interpreter-cost.log
