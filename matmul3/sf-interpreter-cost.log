@@ -1,6 +1,6 @@
 Total waiting cost: 0.0000
-main: 35324104.0000
-| read_mat: 361405.0000
-| read_mat: 361405.0000
-| matmul: 34229810.0000
-| print_mat: 371405.0000
+main: 33769669.9996
+| read_mat: 350810.0000
+| read_mat: 350810.0000
+| matmul: 32707164.9996
+| print_mat: 360810.0000

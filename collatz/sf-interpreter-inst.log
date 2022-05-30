@@ -6,9 +6,9 @@ BrCond	76	171.0000
 Switch	0	0.0000
 Malloc	0	0.0000
 Free	0	0.0000
-Load	51	306.0000
+Load	26	156.0000
 Store	26	156.0000
-BinaryOp	230	234.0000
+BinaryOp	180	184.0000
 Sum	0	0.0000
 UnaryOp	32	32.0000
 Select	0	0.0000
